@@ -23,7 +23,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        int randomBorder = Random.Range(0, 3);
+        int randomBorder = Random.Range(0, 4);
         int randomXRange = Random.Range(-maxX, maxX);
         int randomYRange = Random.Range(-maxY, maxY);
         int randomEnemy = Random.Range(0, enemyPrefabs.Length);

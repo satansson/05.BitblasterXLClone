@@ -9,13 +9,11 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] int maxX = 960;
     [SerializeField] int maxY = 540;
     [SerializeField] int maxEnemiesAmount;
-    [SerializeField] GameObject[] enemyPrefabs;
 
-    int enemiesAmount = 0;
+    public static int enemiesAmount = 0;
 
     Vector3 spawnPosition;
 
-    // Start is called before the first frame update
     void Start()
     {
         Invoke("SpawnEnemy", 1);
@@ -26,7 +24,6 @@ public class SpawnManager : MonoBehaviour
         int randomBorder = Random.Range(0, 4);
         int randomXRange = Random.Range(-maxX, maxX);
         int randomYRange = Random.Range(-maxY, maxY);
-        int randomEnemy = Random.Range(0, enemyPrefabs.Length);
 
         float randTime = Random.Range(minTime, maxTime);
         float spawnRate = 1 + randTime / Time.time;
@@ -42,7 +39,9 @@ public class SpawnManager : MonoBehaviour
 
         if (enemiesAmount < maxEnemiesAmount)
         {
-            Instantiate(enemyPrefabs[randomEnemy], spawnPosition, enemyPrefabs[randomEnemy].transform.rotation);
+            GameObject newEnemy = ObjectPool.SharedInstance.GetPooledEnemy();
+            newEnemy.transform.position = spawnPosition;
+            newEnemy.SetActive(true);
             enemiesAmount++;
         }
 

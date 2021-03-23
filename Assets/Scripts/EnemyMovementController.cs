@@ -10,12 +10,12 @@ public class EnemyMovementController : MonoBehaviour
 
     [SerializeField] float movementSpeed;
 
-    private void Start()
+    private void OnEnable()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         movementDirection = player.position - transform.position;
         transform.Translate(movementDirection * movementSpeed * Time.deltaTime);

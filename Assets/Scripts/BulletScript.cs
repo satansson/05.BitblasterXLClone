@@ -1,11 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
     [SerializeField] float xBorder;
     [SerializeField] float yBorder;
+    GameUI gameUI;
+
+    int score = 0;
+
+    private void Start()
+    {
+        gameUI = FindObjectOfType<GameUI>();
+    }
 
     private void Update()
     {
@@ -18,5 +24,8 @@ public class BulletScript : MonoBehaviour
         collision.gameObject.SetActive(false);
         gameObject.SetActive(false);
         SpawnManager.enemiesAmount--;
+        score++;
+        gameUI.UpdateEnemies(SpawnManager.enemiesAmount);
+        gameUI.UpdateScore(score);
     }
 }

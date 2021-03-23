@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -9,6 +7,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] int maxX = 960;
     [SerializeField] int maxY = 540;
     [SerializeField] int maxEnemiesAmount;
+    GameUI gameUI;
 
     public static int enemiesAmount = 0;
 
@@ -17,6 +16,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         Invoke("SpawnEnemy", 1);
+        gameUI = FindObjectOfType<GameUI>();
     }
 
     void SpawnEnemy()
@@ -43,6 +43,7 @@ public class SpawnManager : MonoBehaviour
             newEnemy.transform.position = spawnPosition;
             newEnemy.SetActive(true);
             enemiesAmount++;
+            gameUI.UpdateEnemies(enemiesAmount);
         }
 
         Invoke("SpawnEnemy", spawnRate);

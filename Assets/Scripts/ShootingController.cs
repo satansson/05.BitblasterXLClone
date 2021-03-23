@@ -1,31 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class ShootingController : MonoBehaviour
 {
     public float shootingSpeed;
     public float bulletSpeed;
     public int ammoAmount;
-
     public Transform spawnPoint;
-    public TextMeshProUGUI ammoText;
+    GameUI gameUI;
 
     float nextShot = 0;
 
     private void Start()
     {
-        ammoText.text = "Ammo: " + ammoAmount;
+        gameUI = FindObjectOfType<GameUI>();
+        gameUI.UpdateAmmo(ammoAmount);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.RightCommand) && Time.time > nextShot && ammoAmount > 0)
+        if (Input.GetKey(KeyCode.Space) && Time.time > nextShot && ammoAmount > 0)
         {
             Shoot();
-        }
+        }        
     }
 
     void Shoot()
@@ -43,6 +40,12 @@ public class ShootingController : MonoBehaviour
         newBulletRB.AddForce(transform.up * bulletSpeed);
 
         ammoAmount--;
-        ammoText.text = "Ammo: " + ammoAmount.ToString();
+
+        if (ammoAmount == 0)
+        {
+            gameUI.ChangeAmmoTextColor(true);
+        }
+
+        gameUI.UpdateAmmo(ammoAmount);
     }
 }

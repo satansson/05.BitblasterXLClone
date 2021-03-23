@@ -5,12 +5,12 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour
 {
     public static ObjectPool SharedInstance;
-    public GameObject bulletToPool;
-    public GameObject[] enemiesToPool;
-    public List<GameObject> pooledBullets;
-    public List<GameObject>[] pooledEnemies;
+    [SerializeField] GameObject bulletToPool;
+    [SerializeField] GameObject[] enemiesToPool;
+    List<GameObject> pooledBullets;
+    List<GameObject>[] pooledEnemies;
     public int bulletsAmount, enemiesAmount;
-    [SerializeField] Transform bullets, enemies;
+    [SerializeField] Transform bulletsParent, enemiesParent;
 
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class ObjectPool : MonoBehaviour
         {
             bullet = Instantiate(bulletToPool);
             bullet.SetActive(false);
-            bullet.transform.parent = bullets;
+            bullet.transform.parent = bulletsParent;
             pooledBullets.Add(bullet);
         }
     }
@@ -59,7 +59,7 @@ public class ObjectPool : MonoBehaviour
             {
                 enemy = Instantiate(enemiesToPool[i]);
                 enemy.SetActive(false);
-                enemy.transform.parent = enemies;
+                enemy.transform.parent = enemiesParent;
                 pooledEnemies[i].Add(enemy);
             }
         }

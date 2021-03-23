@@ -9,14 +9,10 @@ public class ShootingController : MonoBehaviour
     public float bulletSpeed;
     public int ammoAmount;
 
-    public GameObject playerBulletPrefab;
-    public GameObject bullets;
     public Transform spawnPoint;
     public TextMeshProUGUI ammoText;
 
     float nextShot = 0;
-
-    // TODO: Add UI text
 
     private void Start()
     {
@@ -36,9 +32,12 @@ public class ShootingController : MonoBehaviour
     {
         nextShot = Time.time + shootingSpeed;
 
-        GameObject newBullet = GameObject.Instantiate(playerBulletPrefab);
-        newBullet.transform.position = spawnPoint.position;
-        newBullet.transform.parent = bullets.transform;
+        GameObject newBullet = ObjectPool.SharedInstance.GetPooledBullet();
+        if (newBullet != null)
+        {
+            newBullet.transform.position = spawnPoint.position;
+            newBullet.SetActive(true);
+        }
 
         Rigidbody2D newBulletRB = newBullet.GetComponent<Rigidbody2D>();
         newBulletRB.AddForce(transform.up * bulletSpeed);

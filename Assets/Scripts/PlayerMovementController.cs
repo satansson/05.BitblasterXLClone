@@ -15,7 +15,7 @@ public class PlayerMovementController : MonoBehaviour
         float movementSpeed = defaultMovementSpeed;
 
         // don't let player leave the screen
-        StayWithinBorders();
+        StayInsideBorders();
 
         // boost
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
@@ -42,7 +42,7 @@ public class PlayerMovementController : MonoBehaviour
         }
     }
 
-    void StayWithinBorders()
+    void StayInsideBorders()
     {        
         if (transform.position.x > xBorder) // Right border
             transform.position = new Vector3(xBorder, transform.position.y, transform.position.z);

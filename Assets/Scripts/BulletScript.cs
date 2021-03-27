@@ -6,8 +6,6 @@ public class BulletScript : MonoBehaviour
     [SerializeField] float yBorder;
     GameUI gameUI;
 
-    int score = 0;
-
     private void Start()
     {
         gameUI = FindObjectOfType<GameUI>();
@@ -24,8 +22,7 @@ public class BulletScript : MonoBehaviour
         collision.gameObject.SetActive(false);
         gameObject.SetActive(false);
         SpawnManager.enemiesAmount--;
-        score++;
         gameUI.UpdateEnemies(SpawnManager.enemiesAmount);
-        gameUI.UpdateScore(score);
+        gameUI.UpdateScore(1);
     }
 }

@@ -22,7 +22,7 @@ public class BombController : MonoBehaviour
 
     void IgniteNuke()
     {
-        if (gameUI.nukesAmount > 0)
+        if (gameUI.nukeAmount > 0)
         {
             foreach (Transform enemy in enemiesGO.transform)
             {

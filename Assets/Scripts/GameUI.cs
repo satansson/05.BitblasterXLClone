@@ -10,8 +10,8 @@ public class GameUI : MonoBehaviour
     [SerializeField] GameObject[] shieldSprites;
     [SerializeField] GameObject[] nukeSprites;
 
-    public int shieldsAmount = 5;
-    public int nukesAmount = 5;
+    public int shieldAmount = 5;
+    public int nukeAmount = 5;
     int score = 0;
 
     private void Start()
@@ -22,6 +22,11 @@ public class GameUI : MonoBehaviour
     public void UpdateAmmo(int ammo)
     {
         ammoText.text = "Ammo: " + ammo.ToString();
+
+        if (ammo == 0)
+        {
+            ChangeAmmoTextColor(true);
+        }
     }
 
     public void UpdateEnemies(int enemies)
@@ -42,27 +47,29 @@ public class GameUI : MonoBehaviour
 
     public void UpdateShields(int change)
     {
-        if (change > 0 && shieldsAmount < 5)
+        if (change > 0 && shieldAmount < 5)
         {
-            shieldsAmount += change;
+            shieldAmount += change;
+            shieldSprites[shieldAmount - 1].SetActive(true);
         }
-        else if (change < 0 && shieldsAmount > 0)
+        else if (change < 0 && shieldAmount > 0)
         {
-            shieldsAmount += change;
+            shieldSprites[shieldAmount - 1].SetActive(false);
+            shieldAmount += change;
         }
     }
 
     public void UpdateNuke(int change)
     {
-        if (change > 0 && shieldsAmount < 5)
+        if (change > 0 && shieldAmount < 5)
         {
-            nukesAmount++;
-            nukeSprites[nukesAmount - 1].SetActive(true);
+            nukeAmount++;
+            nukeSprites[nukeAmount - 1].SetActive(true);
         }
-        else if (change < 0 && shieldsAmount > 0)
+        else if (change < 0 && shieldAmount > 0)
         {
-            nukeSprites[nukesAmount - 1].SetActive(false);
-            nukesAmount--;
+            nukeSprites[nukeAmount - 1].SetActive(false);
+            nukeAmount--;
         }        
     }
 }

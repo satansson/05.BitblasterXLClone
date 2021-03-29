@@ -19,10 +19,13 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.gameObject.SetActive(false);
-        gameObject.SetActive(false);
-        SpawnManager.enemiesAmount--;
-        gameUI.UpdateEnemies(SpawnManager.enemiesAmount);
-        gameUI.UpdateScore(1);
+        if (!collision.CompareTag("Player"))
+        {
+            collision.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+            SpawnManager.enemiesAmount--;
+            gameUI.UpdateEnemies(SpawnManager.enemiesAmount);
+            gameUI.UpdateScore(1);
+        }
     }
 }

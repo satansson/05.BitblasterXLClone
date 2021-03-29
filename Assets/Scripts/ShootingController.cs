@@ -40,12 +40,6 @@ public class ShootingController : MonoBehaviour
         newBulletRB.AddForce(transform.up * bulletSpeed);
 
         ammoAmount--;
-
-        if (ammoAmount == 0)
-        {
-            gameUI.ChangeAmmoTextColor(true);
-        }
-
-        gameUI.UpdateAmmo(ammoAmount);
+        gameUI.UpdateAmmo(ammoAmount);       
     }
 }

@@ -19,16 +19,15 @@ public class PlayerCollisionDetection : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            print("Enemy touched");
             playerHealth.TakeDamage();
         }
-        else if (collision.CompareTag("ShieldPickup"))
-        {
-            gameUI.UpdateShields(1);
-        }
-        else if (collision.CompareTag("NukePickup"))
-        {
-            gameUI.UpdateNuke(1);
-        }
+        //else if (collision.CompareTag("ShieldPickup"))
+        //{
+        //    gameUI.UpdateShields(1);
+        //}
+        //else if (collision.CompareTag("NukePickup"))
+        //{
+        //    gameUI.UpdateNuke(1);
+        //}
     }
 }

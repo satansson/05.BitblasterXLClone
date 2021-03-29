@@ -22,6 +22,11 @@ public class GameUI : MonoBehaviour
     public void UpdateAmmo(int ammo)
     {
         ammoText.text = "Ammo: " + ammo.ToString();
+
+        if (ammo == 0)
+        {
+            ChangeAmmoTextColor(true);
+        }
     }
 
     public void UpdateEnemies(int enemies)

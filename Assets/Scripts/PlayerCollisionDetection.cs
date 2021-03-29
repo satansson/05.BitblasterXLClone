@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class PlayerCollisionDetection : MonoBehaviour
 {
+    GameObject player;
+    PlayerHealth playerHealth;
     GameUI gameUI;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void Start()
+    {
+        player = gameObject;
+        playerHealth = GetComponent<PlayerHealth>();
+        gameUI = FindObjectOfType<GameUI>();
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            if (gameUI.shieldsAmount > 0)
-            {
-                gameUI.UpdateShields(-1);
-            }
-            else
-            {
-                // TODO: GameOver
-            }
+            print("Enemy touched");
+            playerHealth.TakeDamage();
         }
         else if (collision.CompareTag("ShieldPickup"))
         {

@@ -19,11 +19,11 @@ public class PlayerCollisionDetection : MonoBehaviour
                 // TODO: GameOver
             }
         }
-        else if (collision.CompareTag("Shield"))
+        else if (collision.CompareTag("ShieldPickup"))
         {
             gameUI.UpdateShields(1);
         }
-        else if (collision.CompareTag("Nuke"))
+        else if (collision.CompareTag("NukePickup"))
         {
             gameUI.UpdateNuke(1);
         }

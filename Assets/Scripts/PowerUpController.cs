@@ -8,6 +8,7 @@ public class PowerUpController : MonoBehaviour
     [SerializeField] bool isPowerUpActive;
     [SerializeField] Multishot multishot;
     [SerializeField] ShootingController shootingController;
+    [SerializeField] GameObject laser;
 
     float activeUntilTime = 0;
     string powerUpType = "multishot";
@@ -15,7 +16,7 @@ public class PowerUpController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ActivateMultishot();
+        ActivateLaser();
     }
 
     void Update()
@@ -33,11 +34,14 @@ public class PowerUpController : MonoBehaviour
             }
             else if (powerUpType == "laser")
             {
-                // TODO: implement laser
+                laser.SetActive(true);
             }
-        }else{
+        }
+        else
+        {
             powerUpType = null;
             isPowerUpActive = false;
+            laser.SetActive(false);
             shootingController.enabled = true;
         }
     }
@@ -46,6 +50,13 @@ public class PowerUpController : MonoBehaviour
     {
         isPowerUpActive = true;
         powerUpType = "multishot";
+        activeUntilTime = Time.time + basicDuration;
+    }
+
+    public void ActivateLaser()
+    {
+        isPowerUpActive = true;
+        powerUpType = "laser";
         activeUntilTime = Time.time + basicDuration;
     }
 }

@@ -10,8 +10,8 @@ public class PlayerCollisionDetection : MonoBehaviour
 
     void Start()
     {
-        player = gameObject;
-        playerHealth = GetComponent<PlayerHealth>();
+        player = transform.parent.gameObject;
+        playerHealth = transform.parent.GetComponent<PlayerHealth>();
         gameUI = FindObjectOfType<GameUI>();
     }
 

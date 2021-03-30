@@ -294,11 +294,10 @@ GameObject:
   m_Component:
   - component: {fileID: 123154166}
   - component: {fileID: 123154172}
-  - component: {fileID: 123154165}
   - component: {fileID: 123154167}
-  - component: {fileID: 123154169}
-  - component: {fileID: 123154171}
   - component: {fileID: 123154173}
+  - component: {fileID: 123154165}
+  - component: {fileID: 123154171}
   - component: {fileID: 123154174}
   m_Layer: 0
   m_Name: Player
@@ -354,27 +353,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 123154164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9a3871b84c3848b9b28af186be91b77, type: 3}
+  m_Script: {fileID: 11500000, guid: 40be810c5472b4044b0207c1d0d19f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemiesParent: {fileID: 395672626}
+  bulletsParent: {fileID: 155006227}
   shootingSpeed: 0.7
   bulletSpeed: 100
-  ammoAmount: 100
   spawnPoint: {fileID: 397951852}
---- !u!114 &123154169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123154164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70fe26c733c654c14b06b71badfb7ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemiesGO: {fileID: 395672626}
-  bulletsGO: {fileID: 155006227}
+  bulletAmount: 100
 --- !u!114 &123154171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +430,7 @@ MonoBehaviour:
   basicDuration: 10
   isPowerUpActive: 1
   multishot: {fileID: 123154173}
-  shootingController: {fileID: 123154167}
+  ammoController: {fileID: 123154167}
   laser: {fileID: 110408091}
   berserkAura: {fileID: 2120725547}
 --- !u!1 &155006227
@@ -570,7 +557,7 @@ GameObject:
   - component: {fileID: 349057988}
   - component: {fileID: 349057987}
   m_Layer: 5
-  m_Name: AmmoText
+  m_Name: BulletsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -615,7 +602,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ammo: 0'
+  m_text: 'Bullets: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 166016688320e48a4a830441020bd6e7, type: 2}
   m_sharedMaterial: {fileID: 4535644040411141655, guid: 166016688320e48a4a830441020bd6e7, type: 2}
@@ -809,7 +796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fe955c6753c496e8aa6fab61bd19c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoText: {fileID: 349057987}
+  bulletsText: {fileID: 349057987}
   enemiesText: {fileID: 1933089787}
   scoreText: {fileID: 1727304320}
   green: {r: 0.45882353, g: 1, b: 0.7294118, a: 1}
@@ -827,7 +814,6 @@ MonoBehaviour:
   - {fileID: 1491393275}
   - {fileID: 1892549147}
   shieldAmount: 5
-  nukeAmount: 5
 --- !u!1 &395672626
 GameObject:
   m_ObjectHideFlags: 0

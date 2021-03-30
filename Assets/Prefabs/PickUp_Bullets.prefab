@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3974638165695118176}
   - component: {fileID: 8017786614278130001}
   m_Layer: 0
-  m_Name: PickUp_Ammo
+  m_Name: PickUp_Bullets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,4 +97,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 10
   blinkingTime: 3
-  pickUpType: ammo
+  pickUpType: bullets
+  ammoAmount: 20

@@ -22,8 +22,11 @@ public class ObjectPool : MonoBehaviour
     private void Start()
     {
         pooledEnemies = new List<GameObject>[enemiesToPool.Length]; // initializing of the array of lists with the amount of enemy types :)
+        pooledPickUps = new List<GameObject>[pickUpsToPool.Length]; // initializing of the array of lists with the amount of pickUp types :)
+
         BuildBullets();
         BuildEnemies();
+        BuildPickUps();
     }
 
     void BuildBullets()

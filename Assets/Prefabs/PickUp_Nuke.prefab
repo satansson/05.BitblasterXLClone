@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2773343696804071160}
   - component: {fileID: 200908800908951678}
   m_Layer: 0
-  m_Name: NukePickUp
+  m_Name: PickUp_Nuke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,3 +98,4 @@ MonoBehaviour:
   duration: 10
   blinkingTime: 3
   pickUpType: nuke
+  ammoAmount: 1

@@ -3,29 +3,29 @@ using TMPro;
 
 public class GameUI : MonoBehaviour
 {
-    public TextMeshProUGUI ammoText;
+    public TextMeshProUGUI bulletsText;
     public TextMeshProUGUI enemiesText;
     public TextMeshProUGUI scoreText;
     [SerializeField] Color green, red;
     [SerializeField] GameObject[] shieldSprites;
     [SerializeField] GameObject[] nukeSprites;
 
-    public int shieldAmount = 5;
     public int nukeAmount = 5;
+    public int shieldAmount = 5;
     int score = 0;
 
     private void Start()
     {
-        green = ammoText.color;
+        green = bulletsText.color;
     }
 
-    public void UpdateAmmo(int ammo)
+    public void UpdateBullets(int _bulletAmount)
     {
-        ammoText.text = "Ammo: " + ammo.ToString();
+        bulletsText.text = "Bullets: " + _bulletAmount.ToString();
 
-        if (ammo == 0)
+        if (_bulletAmount == 0)
         {
-            ChangeAmmoTextColor(true);
+            ChangeBulletsTextColor(true);
         }
     }
 
@@ -40,33 +40,34 @@ public class GameUI : MonoBehaviour
         scoreText.text = "Score: " + score.ToString();
     }
 
-    public void ChangeAmmoTextColor(bool isEmpty)
+    public void ChangeBulletsTextColor(bool isEmpty)
     {
-        ammoText.color = isEmpty ? red : green;
+        bulletsText.color = isEmpty ? red : green;
     }
 
-    public void UpdateShields(int change)
+    public void UpdateShields(int shieldUpdate)
     {
-        if (change > 0 && shieldAmount < 5)
+        if (shieldUpdate > 0 && shieldAmount < 5)
         {
-            shieldAmount += change;
+            shieldAmount += shieldUpdate;
             shieldSprites[shieldAmount - 1].SetActive(true);
         }
-        else if (change < 0 && shieldAmount > 0)
+        else if (shieldUpdate < 0 && shieldAmount > 0)
         {
             shieldSprites[shieldAmount - 1].SetActive(false);
-            shieldAmount += change;
+            shieldAmount += shieldUpdate;
         }
     }
 
-    public void UpdateNuke(int change)
+    public void UpdateNukes(int nukeUpdate)
     {
-        if (change > 0 && shieldAmount < 5)
+        // Shows a corresponding nuke icon
+        if (nukeUpdate > 0)
         {
-            nukeAmount++;
             nukeSprites[nukeAmount - 1].SetActive(true);
         }
-        else if (change < 0 && shieldAmount > 0)
+        // Hides a corresponding nuke icon
+        else if (nukeUpdate < 0)
         {
             nukeSprites[nukeAmount - 1].SetActive(false);
             nukeAmount--;

@@ -7,7 +7,7 @@ public class PowerUpController : MonoBehaviour
     [SerializeField] float basicDuration;
     [SerializeField] bool isPowerUpActive;
     [SerializeField] Multishot multishot;
-    [SerializeField] ShootingController shootingController;
+    [SerializeField] AmmoController ammoController;
     [SerializeField] GameObject laser;
     [SerializeField] GameObject berserkAura;
 
@@ -17,14 +17,14 @@ public class PowerUpController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ActivateBerserk();
+        ActivatePowerUp(powerUpType);
     }
 
     void Update()
     {
         if (isPowerUpActive && Time.time < activeUntilTime)
         {
-            shootingController.enabled = false;
+            ammoController.shootingAllowed = false;
 
             if (powerUpType == "multishot")
             {
@@ -55,28 +55,14 @@ public class PowerUpController : MonoBehaviour
 
             powerUpType = null;
             isPowerUpActive = false;
-            shootingController.enabled = true;            
+            ammoController.shootingAllowed = true;            
         }        
     }
 
-    public void ActivateMultishot()
+    public void ActivatePowerUp(string _powerUpType)
     {
         isPowerUpActive = true;
-        powerUpType = "multishot";
-        activeUntilTime = Time.time + basicDuration;
-    }
-
-    public void ActivateLaser()
-    {
-        isPowerUpActive = true;
-        powerUpType = "laser";
-        activeUntilTime = Time.time + basicDuration;
-    }
-
-    public void ActivateBerserk()
-    {
-        isPowerUpActive = true;
-        powerUpType = "berserk";
+        powerUpType = _powerUpType;
         activeUntilTime = Time.time + basicDuration;
     }
 }

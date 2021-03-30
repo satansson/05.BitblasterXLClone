@@ -50,8 +50,10 @@ public class PlayerCollisionDetection : MonoBehaviour
         {
             gameUI.UpdateShields(1);
 
-            // TODO: pick up only if < 5
-            collision.gameObject.SetActive(false);
+            if (gameUI.pickedUp)
+            {
+                collision.gameObject.SetActive(false);
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ public class GameUI : MonoBehaviour
 
     public int nukeAmount = 5;
     public int shieldAmount = 5;
+    public bool pickedUp;
     int score = 0;
 
     private void Start()
@@ -51,12 +52,15 @@ public class GameUI : MonoBehaviour
         {
             shieldAmount += shieldUpdate;
             shieldSprites[shieldAmount - 1].SetActive(true);
+            pickedUp = true;
         }
         else if (shieldUpdate < 0 && shieldAmount > 0)
         {
             shieldSprites[shieldAmount - 1].SetActive(false);
             shieldAmount += shieldUpdate;
         }
+        else
+            pickedUp = false;
     }
 
     public void UpdateNukes(int nukeUpdate)

@@ -12,13 +12,7 @@ public class PowerUpController : MonoBehaviour
     [SerializeField] GameObject berserkAura;
 
     float activeUntilTime = 0;
-    string powerUpType = "multishot";
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //ActivatePowerUp(powerUpType);
-    }
+    string powerUpType;
 
     void Update()
     {
@@ -59,10 +53,10 @@ public class PowerUpController : MonoBehaviour
         }        
     }
 
-    public void ActivatePowerUp(string _powerUpType)
+    public void ActivatePowerUp(string pickedPowerUpType)
     {
         isPowerUpActive = true;
-        powerUpType = _powerUpType;
+        powerUpType = pickedPowerUpType;
         activeUntilTime = Time.time + basicDuration;
     }
 }

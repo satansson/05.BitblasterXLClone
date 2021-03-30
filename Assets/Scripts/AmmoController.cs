@@ -92,8 +92,10 @@ public class AmmoController : MonoBehaviour
                 gameUI.UpdateNukes(plusAmount);
                 pickedUp = true;
             }
-
-            pickedUp = false;
+            else
+            {
+                pickedUp = false;
+            }            
         }
     }
 }

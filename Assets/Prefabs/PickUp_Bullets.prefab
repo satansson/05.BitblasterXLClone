@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1915055583108461560}
   - component: {fileID: 3974638165695118176}
   - component: {fileID: 8017786614278130001}
+  - component: {fileID: -7533367207383668590}
   m_Layer: 0
   m_Name: PickUp_Bullets
-  m_TagString: Untagged
+  m_TagString: Ammo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,5 +98,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 10
   blinkingTime: 2
-  pickUpType: '"bullets"'
   ammoAmount: 20
+  pickUpType: bullets
+--- !u!58 &-7533367207383668590
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2712239844296097202}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.35

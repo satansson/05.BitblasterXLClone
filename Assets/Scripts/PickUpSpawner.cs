@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickUpSpawner : MonoBehaviour
 {
-    [SerializeField] float pickUpSpawnChanse = .1f;
+    [SerializeField] float pickUpSpawnChanse;
 
     private void OnDisable()
     {

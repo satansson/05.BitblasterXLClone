@@ -24,17 +24,17 @@ public class PowerUpController : MonoBehaviour
     {
         if (isPowerUpActive && Time.time < activeUntilTime)
         {
-            ammoController.shootingAllowed = false;
-
             if (powerUpType == "multishot")
             {
                 if (Input.GetKey(KeyCode.Space))
                 {
+                    ammoController.shootingAllowed = false;
                     multishot.ShootRepeating();
                 }
             }
             else if (powerUpType == "laser")
             {
+                ammoController.shootingAllowed = false;
                 laser.SetActive(true);
             }
             else if (powerUpType == "berserk")

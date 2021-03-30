@@ -97,5 +97,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 10
   blinkingTime: 2
-  pickUpType: bullets
+  pickUpType: '"bullets"'
   ammoAmount: 20

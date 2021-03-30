@@ -12,14 +12,12 @@ public class PickUpController : MonoBehaviour
     bool isBlinking;
     float killTime;
     SpriteRenderer pickUpSprite;
-    AmmoController ammoController;
 
     // Start is called before the first frame update
     void Start()
     {
         killTime = Time.time + duration;
         pickUpSprite = GetComponent<SpriteRenderer>();
-        ammoController = FindObjectOfType<AmmoController>();
     }
 
     // Update is called once per frame
@@ -46,22 +44,5 @@ public class PickUpController : MonoBehaviour
     void DestroyPickUp()
     {
         gameObject.SetActive(false);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            if (pickUpType == "bullets" || pickUpType == "nuke")
-            {
-                if (ammoController.pickedUp) // Hides a PickUp object if it's pickedUp
-                {
-                    collision.GetComponent<AmmoController>().PickUpAmmo(pickUpType, ammoAmount);
-                    gameObject.SetActive(false);
-                }
-            }
-            else
-                collision.GetComponent<PowerUpController>().ActivatePowerUp(pickUpType);
-        }
     }
 }

@@ -16,6 +16,8 @@ public class PickUpSpawner : MonoBehaviour
 
     void SpawnRandPickUp()
     {
+        // TODO: Randomize different pickUp spawn chanses
+
         GameObject pickUp = ObjectPool.SharedInstance.GetPooledPickUp();
         pickUp.transform.position = gameObject.transform.position;
         pickUp.SetActive(true);

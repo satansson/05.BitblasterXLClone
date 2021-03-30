@@ -1482,6 +1482,7 @@ Transform:
   m_Children:
   - {fileID: 155006228}
   - {fileID: 395672627}
+  - {fileID: 2003205772}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1502,10 +1503,19 @@ MonoBehaviour:
   - {fileID: 6936741143166906181, guid: f91f83a19dbc34362b5f0b15cee0837a, type: 3}
   - {fileID: 8571869781649467836, guid: 72341fc0f42b74579b7fec00e8ff965a, type: 3}
   - {fileID: 2008919178231057257, guid: 65b87acb5e3be45258c9e949e38aa0e1, type: 3}
+  pickUpsToPool:
+  - {fileID: 2712239844296097202, guid: d71e2a3fc5785438c8916da2264d1f17, type: 3}
+  - {fileID: 2146133516574876620, guid: 5b8f5ea6089004879b96957523f01b7f, type: 3}
+  - {fileID: 1724026275495171684, guid: af951cc204a68435598eea4850ba0233, type: 3}
+  - {fileID: 4252804981172226235, guid: 8e993c1f1d14349cca404ed6a6a013d0, type: 3}
+  - {fileID: 2773343696804071161, guid: 1186af4ce15fd496e983c52423bd076d, type: 3}
+  - {fileID: 345284436812402796, guid: fae9808ed7ff5416fa116608d0c14e6c, type: 3}
   bulletsAmount: 100
   enemiesAmount: 50
+  pickUpsAmount: 3
   bulletsParent: {fileID: 155006228}
   enemiesParent: {fileID: 395672627}
+  pickUpsParent: {fileID: 2003205772}
 --- !u!1 &987459545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2549,6 +2559,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2003205771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2003205772}
+  m_Layer: 0
+  m_Name: PickUps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2003205772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003205771}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 975485253}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2120725547
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,12 +48,6 @@ public class PickUpController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public static PickUpController SpawnRandomPickUp()
-    {
-        GameObject randomPickUp = ObjectPool.SharedInstance.GetPooledPickUp();
-        return randomPickUp.GetComponent<PickUpController>();
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

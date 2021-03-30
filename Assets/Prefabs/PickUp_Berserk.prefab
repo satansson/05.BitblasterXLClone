@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2146133516574876623}
   - component: {fileID: 2123924246160409901}
   m_Layer: 0
-  m_Name: BerserkPickUp
+  m_Name: PickUp_Berserk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,5 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 10
-  blinkingTime: 3
+  blinkingTime: 2
   pickUpType: berserk
+  ammoAmount: 0

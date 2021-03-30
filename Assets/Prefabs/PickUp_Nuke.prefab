@@ -96,6 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 10
-  blinkingTime: 3
+  blinkingTime: 2
   pickUpType: nuke
   ammoAmount: 1

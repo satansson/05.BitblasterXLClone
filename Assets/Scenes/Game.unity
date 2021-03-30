@@ -195,7 +195,7 @@ Transform:
   m_LocalScale: {x: 5, y: 300, z: 0}
   m_Children: []
   m_Father: {fileID: 123154166}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &110408093
 MonoBehaviour:
@@ -337,9 +337,9 @@ Transform:
   m_Children:
   - {fileID: 1163029801}
   - {fileID: 397951852}
+  - {fileID: 630437522}
   - {fileID: 1737730054}
   - {fileID: 110408092}
-  - {fileID: 630437522}
   - {fileID: 2120725551}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -358,10 +358,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesParent: {fileID: 395672626}
   bulletsParent: {fileID: 155006227}
+  bulletAmount: 100
+  spawnPoint: {fileID: 397951852}
   shootingSpeed: 0.7
   bulletSpeed: 100
-  spawnPoint: {fileID: 397951852}
-  bulletAmount: 100
+  shootingAllowed: 1
+  pickedUp: 0
 --- !u!114 &123154171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -813,6 +815,7 @@ MonoBehaviour:
   - {fileID: 1816342994}
   - {fileID: 1491393275}
   - {fileID: 1892549147}
+  nukeAmount: 5
   shieldAmount: 5
 --- !u!1 &395672626
 GameObject:
@@ -1134,7 +1137,7 @@ GameObject:
   - component: {fileID: 630437524}
   - component: {fileID: 630437523}
   m_Layer: 0
-  m_Name: Collider
+  m_Name: PlayerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1152,7 +1155,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 123154166}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &630437523
 MonoBehaviour:
@@ -1498,7 +1501,7 @@ MonoBehaviour:
   - {fileID: 345284436812402796, guid: fae9808ed7ff5416fa116608d0c14e6c, type: 3}
   bulletsAmount: 100
   enemiesAmount: 50
-  pickUpsAmount: 3
+  pickUpAmount: 3
   bulletsParent: {fileID: 155006228}
   enemiesParent: {fileID: 395672627}
   pickUpsParent: {fileID: 2003205772}
@@ -2163,7 +2166,7 @@ Transform:
   - {fileID: 2136827439}
   - {fileID: 792512400}
   m_Father: {fileID: 123154166}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1816342994
 GameObject:

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1724026275495171685}
   - component: {fileID: 872651869599268869}
   m_Layer: 0
-  m_Name: LaserPickUp
+  m_Name: PickUp_Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,5 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 10
-  blinkingTime: 3
+  blinkingTime: 2
   pickUpType: laser
+  ammoAmount: 0

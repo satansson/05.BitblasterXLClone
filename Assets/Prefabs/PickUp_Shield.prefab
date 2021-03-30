@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 345284436812402797}
   - component: {fileID: 4338432665731950861}
   m_Layer: 0
-  m_Name: ShieldPickUp
+  m_Name: PickUp_Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,5 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 10
-  blinkingTime: 3
+  blinkingTime: 2
   pickUpType: shield
+  ammoAmount: 0

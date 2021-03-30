@@ -17,7 +17,7 @@ public class PowerUpController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ActivatePowerUp(powerUpType);
+        //ActivatePowerUp(powerUpType);
     }
 
     void Update()

@@ -7,34 +7,28 @@ public class PowerUpController : MonoBehaviour
     [SerializeField] float basicDuration;
     [SerializeField] bool isPowerUpActive;
     [SerializeField] Multishot multishot;
-    [SerializeField] ShootingController shootingController;
+    [SerializeField] AmmoController ammoController;
     [SerializeField] GameObject laser;
     [SerializeField] GameObject berserkAura;
 
     float activeUntilTime = 0;
-    string powerUpType = "multishot";
+    string powerUpType;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        ActivateBerserk();
-    }
-
-    void Update()
+    void FixedUpdate()
     {
         if (isPowerUpActive && Time.time < activeUntilTime)
         {
-            shootingController.enabled = false;
-
             if (powerUpType == "multishot")
             {
                 if (Input.GetKey(KeyCode.Space))
                 {
+                    ammoController.shootingAllowed = false;
                     multishot.ShootRepeating();
                 }
             }
             else if (powerUpType == "laser")
             {
+                ammoController.shootingAllowed = false;
                 laser.SetActive(true);
             }
             else if (powerUpType == "berserk")
@@ -44,39 +38,25 @@ public class PowerUpController : MonoBehaviour
         }
         else
         {
-            if (powerUpType == "laser")
+            if (laser.activeInHierarchy)
             {
                 laser.SetActive(false);
             }
-            else if (powerUpType == "berserk")
+            else if (berserkAura.activeInHierarchy)
             {
                 berserkAura.SetActive(false);
             }
 
             powerUpType = null;
             isPowerUpActive = false;
-            shootingController.enabled = true;            
+            ammoController.shootingAllowed = true;            
         }        
     }
 
-    public void ActivateMultishot()
+    public void ActivatePowerUp(string pickedPowerUpType)
     {
         isPowerUpActive = true;
-        powerUpType = "multishot";
-        activeUntilTime = Time.time + basicDuration;
-    }
-
-    public void ActivateLaser()
-    {
-        isPowerUpActive = true;
-        powerUpType = "laser";
-        activeUntilTime = Time.time + basicDuration;
-    }
-
-    public void ActivateBerserk()
-    {
-        isPowerUpActive = true;
-        powerUpType = "berserk";
+        powerUpType = pickedPowerUpType;
         activeUntilTime = Time.time + basicDuration;
     }
 }

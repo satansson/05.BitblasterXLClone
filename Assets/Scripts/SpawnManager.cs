@@ -25,8 +25,8 @@ public class SpawnManager : MonoBehaviour
         int randomXRange = Random.Range(-maxX, maxX);
         int randomYRange = Random.Range(-maxY, maxY);
 
-        float randTime = Random.Range(minTime, maxTime);
-        float spawnRate = 1 + randTime / Time.time;
+        float randTime = Random.Range(minTime, maxTime / Time.time);
+        float spawnRate = .5f + randTime;
 
         if (randomBorder == 0)
             spawnPosition = new Vector3(randomXRange, maxY, 0);
@@ -40,10 +40,18 @@ public class SpawnManager : MonoBehaviour
         if (enemiesAmount < maxEnemiesAmount)
         {
             GameObject newEnemy = ObjectPool.SharedInstance.GetPooledEnemy();
-            newEnemy.transform.position = spawnPosition;
-            newEnemy.SetActive(true);
-            enemiesAmount++;
-            gameUI.UpdateEnemies(enemiesAmount);
+
+            if (newEnemy != null)
+            {
+                newEnemy.transform.position = spawnPosition;
+                newEnemy.SetActive(true);
+                enemiesAmount++;
+                gameUI.UpdateEnemies(enemiesAmount);
+            }
+            else
+            {
+                print("There's no enemies to spawn!");
+            }            
         }
 
         Invoke("SpawnEnemy", spawnRate);

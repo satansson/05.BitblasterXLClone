@@ -195,7 +195,7 @@ Transform:
   m_LocalScale: {x: 5, y: 300, z: 0}
   m_Children: []
   m_Father: {fileID: 123154166}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &110408093
 MonoBehaviour:
@@ -294,11 +294,10 @@ GameObject:
   m_Component:
   - component: {fileID: 123154166}
   - component: {fileID: 123154172}
-  - component: {fileID: 123154165}
   - component: {fileID: 123154167}
-  - component: {fileID: 123154169}
-  - component: {fileID: 123154171}
   - component: {fileID: 123154173}
+  - component: {fileID: 123154165}
+  - component: {fileID: 123154171}
   - component: {fileID: 123154174}
   m_Layer: 0
   m_Name: Player
@@ -338,9 +337,9 @@ Transform:
   m_Children:
   - {fileID: 1163029801}
   - {fileID: 397951852}
+  - {fileID: 630437522}
   - {fileID: 1737730054}
   - {fileID: 110408092}
-  - {fileID: 630437522}
   - {fileID: 2120725551}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -354,27 +353,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 123154164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9a3871b84c3848b9b28af186be91b77, type: 3}
+  m_Script: {fileID: 11500000, guid: 40be810c5472b4044b0207c1d0d19f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemiesParent: {fileID: 395672626}
+  bulletsParent: {fileID: 155006227}
+  bulletAmount: 100
+  spawnPoint: {fileID: 397951852}
   shootingSpeed: 0.7
   bulletSpeed: 100
-  ammoAmount: 100
-  spawnPoint: {fileID: 397951852}
---- !u!114 &123154169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123154164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70fe26c733c654c14b06b71badfb7ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemiesGO: {fileID: 395672626}
-  bulletsGO: {fileID: 155006227}
+  shootingAllowed: 1
+  pickedUp: 0
 --- !u!114 &123154171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +432,7 @@ MonoBehaviour:
   basicDuration: 10
   isPowerUpActive: 1
   multishot: {fileID: 123154173}
-  shootingController: {fileID: 123154167}
+  ammoController: {fileID: 123154167}
   laser: {fileID: 110408091}
   berserkAura: {fileID: 2120725547}
 --- !u!1 &155006227
@@ -570,7 +559,7 @@ GameObject:
   - component: {fileID: 349057988}
   - component: {fileID: 349057987}
   m_Layer: 5
-  m_Name: AmmoText
+  m_Name: BulletsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -615,7 +604,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ammo: 0'
+  m_text: 'Bullets: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 166016688320e48a4a830441020bd6e7, type: 2}
   m_sharedMaterial: {fileID: 4535644040411141655, guid: 166016688320e48a4a830441020bd6e7, type: 2}
@@ -809,7 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fe955c6753c496e8aa6fab61bd19c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoText: {fileID: 349057987}
+  bulletsText: {fileID: 349057987}
   enemiesText: {fileID: 1933089787}
   scoreText: {fileID: 1727304320}
   green: {r: 0.45882353, g: 1, b: 0.7294118, a: 1}
@@ -826,8 +815,9 @@ MonoBehaviour:
   - {fileID: 1816342994}
   - {fileID: 1491393275}
   - {fileID: 1892549147}
-  shieldAmount: 5
   nukeAmount: 5
+  shieldAmount: 5
+  pickedUp: 0
 --- !u!1 &395672626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,8 +1137,9 @@ GameObject:
   - component: {fileID: 630437522}
   - component: {fileID: 630437524}
   - component: {fileID: 630437523}
+  - component: {fileID: 630437525}
   m_Layer: 0
-  m_Name: Collider
+  m_Name: PlayerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1166,7 +1157,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 123154166}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &630437523
 MonoBehaviour:
@@ -1196,6 +1187,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 30
+--- !u!58 &630437525
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630437521}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &688664146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,7 +1472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minTime: 0
-  maxTime: 2
+  maxTime: 5
   maxX: 960
   maxY: 540
   maxEnemiesAmount: 50
@@ -1482,6 +1489,7 @@ Transform:
   m_Children:
   - {fileID: 155006228}
   - {fileID: 395672627}
+  - {fileID: 2003205772}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1502,10 +1510,20 @@ MonoBehaviour:
   - {fileID: 6936741143166906181, guid: f91f83a19dbc34362b5f0b15cee0837a, type: 3}
   - {fileID: 8571869781649467836, guid: 72341fc0f42b74579b7fec00e8ff965a, type: 3}
   - {fileID: 2008919178231057257, guid: 65b87acb5e3be45258c9e949e38aa0e1, type: 3}
-  bulletsAmount: 100
-  enemiesAmount: 50
+  pickUpsToPool:
+  - {fileID: 2712239844296097202, guid: d71e2a3fc5785438c8916da2264d1f17, type: 3}
+  - {fileID: 2146133516574876620, guid: 5b8f5ea6089004879b96957523f01b7f, type: 3}
+  - {fileID: 1724026275495171684, guid: af951cc204a68435598eea4850ba0233, type: 3}
+  - {fileID: 4252804981172226235, guid: 8e993c1f1d14349cca404ed6a6a013d0, type: 3}
+  - {fileID: 2773343696804071161, guid: 1186af4ce15fd496e983c52423bd076d, type: 3}
+  - {fileID: 345284436812402796, guid: fae9808ed7ff5416fa116608d0c14e6c, type: 3}
   bulletsParent: {fileID: 155006228}
   enemiesParent: {fileID: 395672627}
+  pickUpsParent: {fileID: 2003205772}
+  bulletsAmount: 50
+  enemiesAmount: 50
+  pickUpAmount: 10
+  enemiesSpawned: 0
 --- !u!1 &987459545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,7 +2185,7 @@ Transform:
   - {fileID: 2136827439}
   - {fileID: 792512400}
   m_Father: {fileID: 123154166}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1816342994
 GameObject:
@@ -2549,6 +2567,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2003205771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2003205772}
+  m_Layer: 0
+  m_Name: PickUps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2003205772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003205771}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 975485253}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2120725547
 GameObject:
   m_ObjectHideFlags: 0

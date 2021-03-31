@@ -9,10 +9,13 @@ public class Multishot : MonoBehaviour
     float bulletSpeed;
     float nextShot = 0;
 
+    AmmoController ammoController;
+
     void Start()
     {
-        shootingSpeed = GetComponent<ShootingController>().shootingSpeed / 2;
-        bulletSpeed = GetComponent<ShootingController>().bulletSpeed;
+        ammoController = GetComponent<AmmoController>();
+        shootingSpeed = ammoController.shootingSpeed / 2;
+        bulletSpeed = ammoController.bulletSpeed;
     }
 
     public void ShootRepeating()

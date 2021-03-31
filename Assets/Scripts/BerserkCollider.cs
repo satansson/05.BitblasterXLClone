@@ -17,6 +17,8 @@ public class BerserkCollider : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             gameUI.UpdateScore(1);
+            SpawnManager.enemiesAmount--;
+            gameUI.UpdateEnemies(SpawnManager.enemiesAmount);
         }
     }
 }

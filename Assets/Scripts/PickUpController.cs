@@ -6,8 +6,9 @@ public class PickUpController : MonoBehaviour
 {
     [SerializeField] float duration;
     [SerializeField] float blinkingTime;
-    [SerializeField] string pickUpType;
-    [SerializeField] int ammoAmount;
+
+    public int ammoAmount;
+    public string pickUpType;
 
     bool isBlinking;
     float killTime;

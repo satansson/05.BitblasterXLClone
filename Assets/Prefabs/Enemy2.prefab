@@ -126,4 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3575a606b97984b008308ef72cd946d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpSpawnChanse: 0.1
+  spawnChanse: 0.1
+  bulletsValue: 0.25
+  berserkValue: 0.35
+  laserValue: 0.45
+  multishotValue: 0.55
+  nukeValue: 0.75

@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2773343696804071163}
   - component: {fileID: 2773343696804071160}
   - component: {fileID: 200908800908951678}
+  - component: {fileID: 502136994710209705}
   m_Layer: 0
   m_Name: PickUp_Nuke
-  m_TagString: Untagged
+  m_TagString: Ammo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,5 +98,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 10
   blinkingTime: 2
-  pickUpType: '"nuke"'
   ammoAmount: 1
+  pickUpType: nuke
+--- !u!58 &502136994710209705
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773343696804071161}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.64

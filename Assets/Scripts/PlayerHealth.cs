@@ -22,13 +22,11 @@ public class PlayerHealth : MonoBehaviour
             if (gameUI.shieldAmount > 0)
             {
                 gameUI.UpdateShields(-1);
-                print("Start Invincibility");
                 StartCoroutine(DamageBlinker());
             }
             else
             {
                 DestroyShip();
-                print("Destroy ship");
             }
         }
     }

@@ -7,23 +7,29 @@ public class ObjectPool : MonoBehaviour
     public static ObjectPool SharedInstance;
     [SerializeField] GameObject bulletToPool;
     [SerializeField] GameObject[] enemiesToPool;
+    [SerializeField] GameObject[] pickUpsToPool;
+    [SerializeField] Transform bulletsParent, enemiesParent, pickUpsParent;
     List<GameObject> pooledBullets;
     List<GameObject>[] pooledEnemies;
-    public int bulletsAmount, enemiesAmount;
-    [SerializeField] Transform bulletsParent, enemiesParent;
+    List<GameObject>[] pooledPickUps;
+
+    public int bulletsAmount, enemiesAmount, pickUpAmount;
+
+    public bool enemiesSpawned;
 
     private void Awake()
     {
         SharedInstance = this;
-    }
 
-    private void Start()
-    {
-        pooledEnemies = new List<GameObject>[enemiesToPool.Length]; // initializing of the array of lists with the amount of enemy types :)
+        pooledEnemies = new List<GameObject>[enemiesToPool.Length]; // initializes an array of enemy lists :)
+        pooledPickUps = new List<GameObject>[pickUpsToPool.Length]; // initializes an array of pickUp lists :)
+
         BuildBullets();
+        BuildPickUps();
         BuildEnemies();
     }
 
+    // Bullets pre-instantiating
     void BuildBullets()
     {
         pooledBullets = new List<GameObject>();
@@ -38,24 +44,33 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    public GameObject GetPooledBullet()
+    // PickUps pre-instantiating
+    void BuildPickUps()
     {
-        for (int i = 0; i < bulletsAmount; i++)
+        for (int i = 0; i < pickUpsToPool.Length; i++)
         {
-            if (!pooledBullets[i].activeInHierarchy)
-                return pooledBullets[i]; // get a bullet from the list
+            pooledPickUps[i] = new List<GameObject>(); // initialising each list in the array
+            GameObject pickUp;
+
+            for (int j = 0; j < pickUpAmount; j++) // pre-instantiating enemies and placing them into initialised list
+            {
+                pickUp = Instantiate(pickUpsToPool[i]);
+                pickUp.SetActive(false);
+                pickUp.transform.parent = pickUpsParent;
+                pooledPickUps[i].Add(pickUp);
+            }
         }
-        return null;
     }
 
+    // Enemies pre-instantiating
     void BuildEnemies()
     {
         for (int i = 0; i < enemiesToPool.Length; i++)
         {
-            pooledEnemies[i] = new List<GameObject>(); // initializing of each list in the array
+            pooledEnemies[i] = new List<GameObject>(); // initialising each list in the array
             GameObject enemy;
 
-            for (int j = 0; j < enemiesAmount; j++) // pre-instantiating enemies and placing them into corresponding lists
+            for (int j = 0; j < enemiesAmount; j++) // pre-instantiating enemies and placing them into initialised list
             {
                 enemy = Instantiate(enemiesToPool[i]);
                 enemy.SetActive(false);
@@ -63,16 +78,41 @@ public class ObjectPool : MonoBehaviour
                 pooledEnemies[i].Add(enemy);
             }
         }
+
+        enemiesSpawned = true;
     }
 
+    // Returns a player bullet
+    public GameObject GetPooledBullet()
+    {
+        for (int i = 0; i < bulletsAmount; i++)
+        {
+            if (!pooledBullets[i].activeInHierarchy)
+                return pooledBullets[i];
+        }
+        return null;
+    }
+
+    // Returns a random enemy
     public GameObject GetPooledEnemy()
     {
-        int randomEnemy = Random.Range(0, enemiesToPool.Length);
+        int randEnemy = Random.Range(0, enemiesToPool.Length);
 
         for (int i = 0; i < enemiesAmount; i++)
         {
-            if (!pooledEnemies[randomEnemy][i].activeInHierarchy)
-                return pooledEnemies[randomEnemy][i];
+            if (!pooledEnemies[randEnemy][i].activeInHierarchy)
+                return pooledEnemies[randEnemy][i];
+        }
+        return null;
+    }
+
+    // Returns a certain pickUp
+    public GameObject GetPooledPickUp(int index)
+    {
+        for (int i = 0; i < pickUpAmount; i++)
+        {
+            if (!pooledPickUps[index][i].activeInHierarchy)
+                return pooledPickUps[index][i];
         }
         return null;
     }

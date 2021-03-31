@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8571869781649467838}
   - component: {fileID: 8571869781649467839}
-  - component: {fileID: 8571869781649467833}
   - component: {fileID: -4687485326763452566}
+  - component: {fileID: 8571869781649467833}
+  - component: {fileID: -9126909001031548460}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Enemy
@@ -84,19 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8571869781649467833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8571869781649467836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b74f78aa35c9e48948066b1aefd0e6ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 0.05
 --- !u!58 &-4687485326763452566
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -113,3 +101,34 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.52
+--- !u!114 &8571869781649467833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8571869781649467836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b74f78aa35c9e48948066b1aefd0e6ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 0.05
+--- !u!114 &-9126909001031548460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8571869781649467836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3575a606b97984b008308ef72cd946d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnChanse: 0.1
+  bulletsValue: 0.25
+  berserkValue: 0.35
+  laserValue: 0.45
+  multishotValue: 0.55
+  nukeValue: 0.75

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -9,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 
     GameUI gameUI;
     bool isInvincible;
+    public static bool gameOver;
 
     void Start()
     {
@@ -33,7 +33,15 @@ public class PlayerHealth : MonoBehaviour
 
     public void DestroyShip()
     {
-        Destroy(gameObject);
+        gameOver = true;
+        gameObject.SetActive(false);
+
+        if (gameUI.score > PlayerPrefs.GetInt("Highscore"))
+        {
+            PlayerPrefs.SetInt("Highscore", gameUI.score);
+        }
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 
     IEnumerator DamageBlinker()

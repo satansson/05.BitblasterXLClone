@@ -6,6 +6,7 @@ using TMPro;
 public class MenuController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI highscoreText;
+    [SerializeField] TextMeshProUGUI labelText;
 
     public int highscoreInt = 0;
 
@@ -15,6 +16,11 @@ public class MenuController : MonoBehaviour
         highscoreInt = PlayerPrefs.HasKey("Highscore")? PlayerPrefs.GetInt("Highscore") : 0;
 
         highscoreText.text = "Highscore: " + highscoreInt;
+
+        if (PlayerHealth.gameOver)
+        {
+            labelText.text = "Game Over";
+        }
     }
 
     public void OnPlayClick()

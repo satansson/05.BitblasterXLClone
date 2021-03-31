@@ -3,10 +3,9 @@ using UnityEngine;
 public class EnemyMovementController : MonoBehaviour
 {
     Transform player;
+    [SerializeField] float movementSpeed;
 
     Vector3 movementDirection;
-
-    [SerializeField] float movementSpeed;
 
     private void OnEnable()
     {
@@ -15,7 +14,10 @@ public class EnemyMovementController : MonoBehaviour
 
     private void Update()
     {
-        movementDirection = player.position - transform.position;
-        transform.Translate(movementDirection * movementSpeed * Time.deltaTime);
+        if (player != null)
+        {
+            movementDirection = player.position - transform.position;
+            transform.Translate(movementDirection * movementSpeed * Time.deltaTime);
+        }
     }
 }

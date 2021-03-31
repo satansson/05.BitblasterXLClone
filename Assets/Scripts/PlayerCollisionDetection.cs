@@ -24,6 +24,10 @@ public class PlayerCollisionDetection : MonoBehaviour
         if (collision.CompareTag("Enemy")) // Damages the player +
         {
             playerHealth.TakeDamage();
+            collision.gameObject.SetActive(false);
+            SpawnManager.enemiesAmount--;
+            gameUI.UpdateEnemies(SpawnManager.enemiesAmount);
+            gameUI.UpdateScore(1);
         }
         else if (collision.CompareTag("Ammo") || collision.CompareTag("PowerUp"))
         {

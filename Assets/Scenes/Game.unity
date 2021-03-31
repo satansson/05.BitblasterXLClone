@@ -606,8 +606,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Bullets: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 166016688320e48a4a830441020bd6e7, type: 2}
-  m_sharedMaterial: {fileID: 4535644040411141655, guid: 166016688320e48a4a830441020bd6e7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1173639e6f8e1420ba3ca9c8d6749f0d, type: 2}
+  m_sharedMaterial: {fileID: 4286275045882930632, guid: 1173639e6f8e1420ba3ca9c8d6749f0d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -818,6 +818,7 @@ MonoBehaviour:
   nukeAmount: 5
   shieldAmount: 5
   pickedUp: 0
+  score: 0
 --- !u!1 &395672626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,11 +1472,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782cda96a8b2d4581ad2c17c84ac3306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 0
-  maxTime: 1
+  baseSpawnRate: 0.4
+  minSpawnTime: 1
+  maxSpawnTime: 5
+  decreaser: 0.05
   maxX: 960
   maxY: 540
   maxEnemiesAmount: 50
+  spawnRate: 0
 --- !u!4 &975485253
 Transform:
   m_ObjectHideFlags: 0
@@ -1520,7 +1524,7 @@ MonoBehaviour:
   bulletsParent: {fileID: 155006228}
   enemiesParent: {fileID: 395672627}
   pickUpsParent: {fileID: 2003205772}
-  bulletsAmount: 100
+  bulletsAmount: 50
   enemiesAmount: 50
   pickUpAmount: 10
   enemiesSpawned: 0
@@ -2077,8 +2081,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Score: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 166016688320e48a4a830441020bd6e7, type: 2}
-  m_sharedMaterial: {fileID: 4535644040411141655, guid: 166016688320e48a4a830441020bd6e7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1173639e6f8e1420ba3ca9c8d6749f0d, type: 2}
+  m_sharedMaterial: {fileID: 4286275045882930632, guid: 1173639e6f8e1420ba3ca9c8d6749f0d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2410,8 +2414,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Enemies: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 166016688320e48a4a830441020bd6e7, type: 2}
-  m_sharedMaterial: {fileID: 4535644040411141655, guid: 166016688320e48a4a830441020bd6e7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1173639e6f8e1420ba3ca9c8d6749f0d, type: 2}
+  m_sharedMaterial: {fileID: 4286275045882930632, guid: 1173639e6f8e1420ba3ca9c8d6749f0d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

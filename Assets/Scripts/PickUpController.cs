@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class PickUpController : MonoBehaviour
 {
-    [SerializeField] float duration;
+    
     [SerializeField] float blinkingTime;
+    [SerializeField] float duration = 7.5f;
 
     public int ammoAmount;
     public string pickUpType;
 
     bool isBlinking;
-    float killTime;
+    float hideTime;
     SpriteRenderer pickUpSprite;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        killTime = Time.time + duration;
+        hideTime = Time.time + duration;
         pickUpSprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Time.time > killTime - blinkingTime && !isBlinking)
+        if (!isBlinking && Time.time > hideTime - blinkingTime)
         {
             StartCoroutine(Blinker());
         }
@@ -32,6 +33,8 @@ public class PickUpController : MonoBehaviour
 
     IEnumerator Blinker()
     {
+        isBlinking = true;
+
         for (int i = 0; i < 4; i++)
         {
             pickUpSprite.enabled = false;

@@ -57,21 +57,25 @@ public class AmmoController : MonoBehaviour
 
     void IgniteNuke()
     {
+        // Destroyes all the enemies
         foreach (Transform enemy in enemiesParent.transform)
         {
             if (enemy.gameObject.activeInHierarchy)
             {
-                gameUI.UpdateScore(1);
                 enemy.gameObject.SetActive(false);
+                gameUI.UpdateScore(1);
+                SpawnManager.enemiesAmount--;
+                gameUI.UpdateEnemies(SpawnManager.enemiesAmount);
             }
-        } // Destroyes all the enemies
+        }
+        // Destroyes all the bullets
         foreach (Transform bullet in bulletsParent.transform)
         {
             if (bullet.gameObject.activeInHierarchy)
             {
                 bullet.gameObject.SetActive(false);
             }
-        } // Destroyes all the bullets
+        }
 
         gameUI.UpdateNukes(-1); 
     }

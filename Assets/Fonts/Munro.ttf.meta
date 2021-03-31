@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 90edb55bb43e74ed59fbb4eaaec031a7
+guid: ba77fad4785234ce3a8302e41f6c7546
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Mundo Sans Std
+  - Munro
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

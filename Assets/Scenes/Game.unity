@@ -606,8 +606,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Bullets: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 166016688320e48a4a830441020bd6e7, type: 2}
-  m_sharedMaterial: {fileID: 4535644040411141655, guid: 166016688320e48a4a830441020bd6e7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1173639e6f8e1420ba3ca9c8d6749f0d, type: 2}
+  m_sharedMaterial: {fileID: 4286275045882930632, guid: 1173639e6f8e1420ba3ca9c8d6749f0d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2077,8 +2077,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Score: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 166016688320e48a4a830441020bd6e7, type: 2}
-  m_sharedMaterial: {fileID: 4535644040411141655, guid: 166016688320e48a4a830441020bd6e7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1173639e6f8e1420ba3ca9c8d6749f0d, type: 2}
+  m_sharedMaterial: {fileID: 4286275045882930632, guid: 1173639e6f8e1420ba3ca9c8d6749f0d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2410,8 +2410,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Enemies: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 166016688320e48a4a830441020bd6e7, type: 2}
-  m_sharedMaterial: {fileID: 4535644040411141655, guid: 166016688320e48a4a830441020bd6e7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1173639e6f8e1420ba3ca9c8d6749f0d, type: 2}
+  m_sharedMaterial: {fileID: 4286275045882930632, guid: 1173639e6f8e1420ba3ca9c8d6749f0d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

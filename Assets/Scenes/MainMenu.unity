@@ -314,7 +314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BITBLASTER CLONE
+  m_text: BITBLASTER XL CLONE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1173639e6f8e1420ba3ca9c8d6749f0d, type: 2}
   m_sharedMaterial: {fileID: 4286275045882930632, guid: 1173639e6f8e1420ba3ca9c8d6749f0d, type: 2}

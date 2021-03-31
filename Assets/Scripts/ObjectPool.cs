@@ -8,27 +8,28 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] GameObject bulletToPool;
     [SerializeField] GameObject[] enemiesToPool;
     [SerializeField] GameObject[] pickUpsToPool;
+    [SerializeField] Transform bulletsParent, enemiesParent, pickUpsParent;
     List<GameObject> pooledBullets;
     List<GameObject>[] pooledEnemies;
     List<GameObject>[] pooledPickUps;
+
     public int bulletsAmount, enemiesAmount, pickUpAmount;
-    [SerializeField] Transform bulletsParent, enemiesParent, pickUpsParent;
+
+    public bool enemiesSpawned;
 
     private void Awake()
     {
         SharedInstance = this;
-    }
 
-    private void Start()
-    {
-        pooledEnemies = new List<GameObject>[enemiesToPool.Length]; // initializing of an array of lists :)
-        pooledPickUps = new List<GameObject>[pickUpsToPool.Length]; // initializing of an array of lists :)
+        pooledEnemies = new List<GameObject>[enemiesToPool.Length]; // initializes an array of enemy lists :)
+        pooledPickUps = new List<GameObject>[pickUpsToPool.Length]; // initializes an array of pickUp lists :)
 
         BuildBullets();
-        BuildEnemies();
         BuildPickUps();
+        BuildEnemies();
     }
 
+    // Bullets pre-instantiating
     void BuildBullets()
     {
         pooledBullets = new List<GameObject>();
@@ -43,23 +44,7 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    void BuildEnemies()
-    {
-        for (int i = 0; i < enemiesToPool.Length; i++)
-        {
-            pooledEnemies[i] = new List<GameObject>(); // initialising each list in the array
-            GameObject enemy;
-
-            for (int j = 0; j < enemiesAmount; j++) // pre-instantiating enemies and placing them into initialised list
-            {
-                enemy = Instantiate(enemiesToPool[i]);
-                enemy.SetActive(false);
-                enemy.transform.parent = enemiesParent;
-                pooledEnemies[i].Add(enemy);
-            }
-        }
-    }
-
+    // PickUps pre-instantiating
     void BuildPickUps()
     {
         for (int i = 0; i < pickUpsToPool.Length; i++)
@@ -77,16 +62,38 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
+    // Enemies pre-instantiating
+    void BuildEnemies()
+    {
+        for (int i = 0; i < enemiesToPool.Length; i++)
+        {
+            pooledEnemies[i] = new List<GameObject>(); // initialising each list in the array
+            GameObject enemy;
+
+            for (int j = 0; j < enemiesAmount; j++) // pre-instantiating enemies and placing them into initialised list
+            {
+                enemy = Instantiate(enemiesToPool[i]);
+                enemy.SetActive(false);
+                enemy.transform.parent = enemiesParent;
+                pooledEnemies[i].Add(enemy);
+            }
+        }
+
+        enemiesSpawned = true;
+    }
+
+    // Returns a player bullet
     public GameObject GetPooledBullet()
     {
         for (int i = 0; i < bulletsAmount; i++)
         {
             if (!pooledBullets[i].activeInHierarchy)
-                return pooledBullets[i]; // gives a bullet from the list
+                return pooledBullets[i];
         }
         return null;
     }
 
+    // Returns a random enemy
     public GameObject GetPooledEnemy()
     {
         int randEnemy = Random.Range(0, enemiesToPool.Length);
@@ -99,14 +106,13 @@ public class ObjectPool : MonoBehaviour
         return null;
     }
 
-    public GameObject GetPooledPickUp()
+    // Returns a certain pickUp
+    public GameObject GetPooledPickUp(int index)
     {
-        int randPickUp = Random.Range(0, pickUpsToPool.Length);
-
         for (int i = 0; i < pickUpAmount; i++)
         {
-            if (!pooledPickUps[randPickUp][i].activeInHierarchy)
-                return pooledPickUps[randPickUp][i];
+            if (!pooledPickUps[index][i].activeInHierarchy)
+                return pooledPickUps[index][i];
         }
         return null;
     }

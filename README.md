@@ -6,4 +6,9 @@ Now I continue the first one with some different (and critical) vision that allo
 
 In this project I applyed:
 - Object pooling;
-- ...
+- Statics;
+- Singleton;
+- etc.
+
+Check this out:
+https://play.unity.com/mg/other/bitblaster-xl-clone

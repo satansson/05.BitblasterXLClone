@@ -1472,7 +1472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minTime: 0
-  maxTime: 1
+  maxTime: 5
   maxX: 960
   maxY: 540
   maxEnemiesAmount: 50
@@ -1520,7 +1520,7 @@ MonoBehaviour:
   bulletsParent: {fileID: 155006228}
   enemiesParent: {fileID: 395672627}
   pickUpsParent: {fileID: 2003205772}
-  bulletsAmount: 100
+  bulletsAmount: 50
   enemiesAmount: 50
   pickUpAmount: 10
   enemiesSpawned: 0

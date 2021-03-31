@@ -14,7 +14,7 @@ public class PowerUpController : MonoBehaviour
     float activeUntilTime = 0;
     string powerUpType;
 
-    void Update()
+    void FixedUpdate()
     {
         if (isPowerUpActive && Time.time < activeUntilTime)
         {
@@ -38,11 +38,11 @@ public class PowerUpController : MonoBehaviour
         }
         else
         {
-            if (powerUpType == "laser")
+            if (laser.activeInHierarchy)
             {
                 laser.SetActive(false);
             }
-            else if (powerUpType == "berserk")
+            else if (berserkAura.activeInHierarchy)
             {
                 berserkAura.SetActive(false);
             }

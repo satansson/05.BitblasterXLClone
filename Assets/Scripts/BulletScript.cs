@@ -23,9 +23,9 @@ public class BulletScript : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             gameObject.SetActive(false);
+            gameUI.UpdateScore(1);
             SpawnManager.enemiesAmount--;
             gameUI.UpdateEnemies(SpawnManager.enemiesAmount);
-            gameUI.UpdateScore(1);
         }
     }
 }

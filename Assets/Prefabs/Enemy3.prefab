@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnChanse: 0.1
-  bulletsValue: 0.25
-  berserkValue: 0.35
-  laserValue: 0.45
-  multishotValue: 0.55
-  nukeValue: 0.75
+  bulletsValue: 0.35
+  berserkValue: 0.45
+  laserValue: 0.55
+  multishotValue: 0.65
+  nukeValue: 0.85

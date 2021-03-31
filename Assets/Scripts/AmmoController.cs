@@ -62,10 +62,10 @@ public class AmmoController : MonoBehaviour
         {
             if (enemy.gameObject.activeInHierarchy)
             {
+                enemy.gameObject.SetActive(false);
                 gameUI.UpdateScore(1);
                 SpawnManager.enemiesAmount--;
                 gameUI.UpdateEnemies(SpawnManager.enemiesAmount);
-                enemy.gameObject.SetActive(false);
             }
         }
         // Destroyes all the bullets

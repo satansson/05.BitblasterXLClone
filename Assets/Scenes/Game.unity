@@ -818,6 +818,7 @@ MonoBehaviour:
   nukeAmount: 5
   shieldAmount: 5
   pickedUp: 0
+  score: 0
 --- !u!1 &395672626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,11 +1472,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782cda96a8b2d4581ad2c17c84ac3306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 0
-  maxTime: 5
+  baseSpawnRate: 0.4
+  minSpawnTime: 1
+  maxSpawnTime: 5
+  decreaser: 0.05
   maxX: 960
   maxY: 540
   maxEnemiesAmount: 50
+  spawnRate: 0
 --- !u!4 &975485253
 Transform:
   m_ObjectHideFlags: 0

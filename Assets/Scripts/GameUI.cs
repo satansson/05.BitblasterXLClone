@@ -13,7 +13,7 @@ public class GameUI : MonoBehaviour
     public int nukeAmount = 5;
     public int shieldAmount = 5;
     public bool pickedUp;
-    int score = 0;
+    public int score = 0;
 
     private void Start()
     {

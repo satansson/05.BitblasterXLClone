@@ -508,6 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highscoreText: {fileID: 539596465}
+  labelText: {fileID: 984853942}
   highscoreInt: 0
 --- !u!1 &1404378026
 GameObject:
